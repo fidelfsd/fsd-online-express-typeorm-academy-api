@@ -86,3 +86,7 @@ npx typeorm entity:create ./src/models/Student
 npx typeorm entity:create ./src/models/Teacher
 npx typeorm entity:create ./src/models/Course
 npx typeorm entity:create ./src/models/Enrollment
+
+
+# Borrar base de datos
+npx typeorm-ts-node-commonjs schema:drop -d ./src/database/data-source.ts

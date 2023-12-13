@@ -27,6 +27,7 @@ export class CreateStudents1702324979537 implements MigrationInterface {
                   name: "last_name",
                   type: "varchar",
                   length: "255",
+                  isNullable: true,
                },
                {
                   name: "date_of_birth",
@@ -35,16 +36,25 @@ export class CreateStudents1702324979537 implements MigrationInterface {
                {
                   name: "address",
                   type: "text",
+                  isNullable: true,
                },
                {
                   name: "phone_number",
                   type: "varchar",
-                  length: "20",
+                  length: "255",
+                  isNullable: true,
+               },
+               {
+                  name: "nationality",
+                  type: "varchar",
+                  length: "255",
+                  isNullable: true,
                },
                {
                   name: "gender",
                   type: "enum",
                   enum: ["male", "female"],
+                  isNullable: true,
                },
             ],
             foreignKeys: [
