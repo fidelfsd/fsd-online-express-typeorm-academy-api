@@ -2,42 +2,57 @@ import { AppDataSource } from "../data-source";
 import { User } from "../../models/User";
 import { UserFactory } from "../factories/UserFactory";
 import { Role } from "../../models/Role";
+import { UserRoles } from "../../constants/UserRoles";
 
+// -----------------------------------------------------------------------------
+
+/**
+ * Seeder para la generación de usuarios y su almacenamiento en la base de datos.
+ */
 export const userSeeder = async () => {
    try {
+      // Inicializar la conexión con la base de datos
       await AppDataSource.initialize();
 
+      // Definir la cantidad de estudiantes a crear
       const count = 3;
 
-      await createUserWithRoles({
-         roles: [{ id: 1, name: "admin" } as Role],
-         count,
+      // / Llamar a la función para sembrar usuarios con roles de admin
+      await seedUsersWithRoles({
+         roles: [UserRoles.ADMIN],
+         count: count,
       });
 
-      console.log("Seeding users completed successfully");
+      // Imprimir mensaje de éxito
+      console.log("Seeding users successfully completed");
    } catch (error) {
-      console.error("Error seeding the database", error);
+      console.error("Error seeding the database:", error);
    } finally {
+      // Cerrar la conexión con la base de datos, independientemente del resultado
       await AppDataSource.destroy();
    }
 };
 
-export const createUserWithRoles = async ({
+export const seedUsersWithRoles = async ({
    roles,
    count,
 }: {
    roles: Role[];
    count: number;
-}): Promise<User[]> => {
+}) => {
+   // Obtener repositorios y fábricas necesarios
    const userRepository = AppDataSource.getRepository(User);
    const userFactory = new UserFactory(userRepository);
 
-   // genenar usuarios
-   const users = userFactory.createMany(count);
+   // Generar usuarios
+   const users = await userFactory.createMany(count);
 
-   // asignar relaciones de roles
-   users.forEach((user) => (user.roles = roles));
+   // Asignar roles a cada usuario
+   users.forEach((user) => {
+      user.roles = roles;
+   });
 
+   // Guardar usuarios en la base de datos
    await userRepository.save(users);
 
    return users;

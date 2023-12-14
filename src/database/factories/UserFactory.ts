@@ -1,9 +1,7 @@
 import { faker } from "@faker-js/faker";
-import { User } from "../../models/User";
 import bcrypt from "bcrypt";
+import { User } from "../../models/User";
 import { BaseFactory } from "./BaseFactory";
-
-// -----------------------------------------------------------------------------
 
 export class UserFactory extends BaseFactory<User> {
    protected generateSpecifics(user: User): User {

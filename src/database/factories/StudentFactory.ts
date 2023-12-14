@@ -1,8 +1,6 @@
 import { faker } from "@faker-js/faker";
-import { BaseFactory } from "./BaseFactory";
 import { Student } from "../../models/Student";
-
-// -----------------------------------------------------------------------------
+import { BaseFactory } from "./BaseFactory";
 
 export class StudentFactory extends BaseFactory<Student> {
    protected generateSpecifics(student: Student): Student {
