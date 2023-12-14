@@ -18,19 +18,22 @@ export class Student {
    first_name!: string;
 
    @Column()
-   last_name!: string;
+   last_name?: string;
 
    @Column()
    date_of_birth!: Date;
 
    @Column()
-   phone_number!: string;
+   phone_number?: string;
 
    @Column()
-   gender!: string;
+   gender?: string;
 
    @Column()
-   nationality!: string;
+   address?: string;
+
+   @Column()
+   nationality?: string;
 
    // 1:1 con User
    @OneToOne(() => User, (user) => user.student)
