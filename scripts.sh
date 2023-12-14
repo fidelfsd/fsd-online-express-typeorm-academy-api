@@ -10,9 +10,20 @@ npm i -D @types/express
 # Modulos adicionales
 npm i cors
 npm i -D @types/cors
-npm i -D nodemon
-npm i -D @faker-js/faker
 
+npm i -D nodemon
+
+npm i bcrypt
+npm i -D @types/bcrypt
+
+npm i @faker-js/faker
+
+npm i jsonwebtoken
+npm i -D @types/jsonwebtoken
+
+# Modulos opcionales
+npm i http-status-codes
+npm i colors
 
 # TypeORM
 npm i typeorm reflect-metadata mysql2
@@ -79,6 +90,9 @@ npx typeorm migration:create ./src/database/migrations/CreateEnrollments
 # Ejecutar migraciones
 npx typeorm-ts-node-commonjs migration:run -d ./src/database/data-source.ts 
 
+# Revertir migraciones
+npx typeorm-ts-node-commonjs migration:revert -d ./src/database/data-source.ts 
+
 # Crear modelos
 npx typeorm entity:create ./src/models/Role
 npx typeorm entity:create ./src/models/User
@@ -87,6 +101,11 @@ npx typeorm entity:create ./src/models/Teacher
 npx typeorm entity:create ./src/models/Course
 npx typeorm entity:create ./src/models/Enrollment
 
-
 # Borrar base de datos
 npx typeorm-ts-node-commonjs schema:drop -d ./src/database/data-source.ts
+
+# Borrar cache
+npx typeorm-ts-node-commonjs cache:clear -d ./src/database/data-source.ts
+
+# Logs
+npx typeorm-ts-node-commonjs schema:log -d ./src/database/data-source.ts

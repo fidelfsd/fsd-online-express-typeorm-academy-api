@@ -42,7 +42,7 @@ export const seedStudentsWithUser = async (count: number) => {
    });
 
    // Generar estudiantes
-   const students = await studentFactory.createMany(count);
+   const students = studentFactory.createMany(count);
 
    // Asignar usuario a cada estudiante
    students.forEach((student, index) => {

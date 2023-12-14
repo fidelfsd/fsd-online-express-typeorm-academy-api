@@ -61,7 +61,8 @@ export class UserController implements Controller {
          const data = req.body;
 
          const userRepository = AppDataSource.getRepository(User);
-         const userUpdated = await userRepository.update({ id: id }, data);
+         await userRepository.update({ id: id }, data);
+
          res.status(202).json({
             message: "User updated successfully",
          });

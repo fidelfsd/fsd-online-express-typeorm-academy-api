@@ -42,7 +42,7 @@ export const seedTeachersWithUser = async (count: number) => {
    });
 
    // Generar profesores
-   const teachers = await teacherFactory.createMany(count);
+   const teachers = teacherFactory.createMany(count);
 
    // Asignar usuario a cada profesor
    teachers.forEach((teacher, index) => {

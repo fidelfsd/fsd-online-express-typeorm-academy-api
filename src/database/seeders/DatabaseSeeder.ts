@@ -17,7 +17,7 @@ import { userSeeder } from "./UserSeeder";
  * - `studentSeeder`: Crea usuarios estudiantes en la base de datos sin matricular en cursos.
  * - `teacherSeeder`: Crea usuarios profesores en la base de datos.
  * - `courseSeeder`: Crea cursos en la base de datos sin asignar a profesores ni estudiantes.
- * - `enrollmentSeeder`: Crea usuarios, cursos y matrículas a partir de los usuarios y cursos generados.
+ * - `enrollmentSeeder`: Crea usuarios, cursos y matrículas a partir de dichos usuarios y cursos.
  */
 (async () => {
    console.log("-----------------------------------------------");
