@@ -45,7 +45,7 @@ export const seedUsersWithRoles = async ({
    const userFactory = new UserFactory(userRepository);
 
    // Generar usuarios
-   const users = await userFactory.createMany(count);
+   const users = userFactory.createMany(count);
 
    // Asignar roles a cada usuario
    users.forEach((user) => {

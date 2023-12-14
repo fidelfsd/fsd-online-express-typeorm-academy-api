@@ -14,7 +14,7 @@ import { Teacher } from "./Teacher";
 @Entity("users")
 export class User {
    @PrimaryGeneratedColumn()
-   id!: number;
+   id?: number;
 
    @Column({ unique: true })
    username!: string;

@@ -12,7 +12,7 @@ import { Enrollment } from "./Enrollment";
 @Entity("students")
 export class Student {
    @PrimaryGeneratedColumn()
-   id!: number;
+   id?: number;
 
    @Column()
    first_name!: string;
