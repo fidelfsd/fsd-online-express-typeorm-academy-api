@@ -1,6 +1,9 @@
 import app from "./app";
 import { AppDataSource } from "./database/data-source";
 
+// import dotenv from "dotenv";
+// dotenv.config();
+
 // -----------------------------------------------------------------------------
 
 const port: number = 3000;

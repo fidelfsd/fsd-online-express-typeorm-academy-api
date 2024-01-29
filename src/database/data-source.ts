@@ -4,15 +4,21 @@ import { CreateRoles1702301789294 } from "./migrations/01-CreateRoles";
 import { CreateUsers1702301796616 } from "./migrations/02-CreateUsers";
 import { CreateUsersRoles1702301805968 } from "./migrations/03-CreateUsersRoles";
 
+import dotenv from "dotenv";
+import { log } from "console";
+dotenv.config();
+
+// import { config } from "../config";
+
 // -----------------------------------------------------------------------------
 
 export const AppDataSource = new DataSource({
    type: "mysql",
-   host: "localhost",
-   port: 3307,
-   username: "root",
-   password: "root",
-   database: "typeorm_academy",
+   host: process.env.DB_HOST,
+   port: 3306,
+   username: process.env.DB_USER,
+   password: "password",
+   database: process.env.DB_DATABASE,
    entities: [`${__dirname}/../models/**/*{.js,.ts}`],
    migrations: [`${__dirname}/migrations/**/*{.js,.ts}`],
    // migrations: [
@@ -25,3 +31,5 @@ export const AppDataSource = new DataSource({
 });
 
 // console.log(`${__dirname}/migrations`);
+
+console.log(process.env);

@@ -1,6 +1,7 @@
 import express, { Application } from "express";
 import router from "./router";
 
+
 // -----------------------------------------------------------------------------
 
 const app: Application = express();
@@ -9,7 +10,6 @@ const app: Application = express();
 app.use(express.json());
 
 // Rutas
-app.use(router)
-
+app.use(router);
 
 export default app;
