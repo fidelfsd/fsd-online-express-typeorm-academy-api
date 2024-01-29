@@ -5,10 +5,7 @@ import { CreateUsers1702301796616 } from "./migrations/02-CreateUsers";
 import { CreateUsersRoles1702301805968 } from "./migrations/03-CreateUsersRoles";
 
 import dotenv from "dotenv";
-import { log } from "console";
 dotenv.config();
-
-// import { config } from "../config";
 
 // -----------------------------------------------------------------------------
 

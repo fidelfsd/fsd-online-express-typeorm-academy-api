@@ -6,7 +6,7 @@ import { AppDataSource } from "./database/data-source";
 
 // -----------------------------------------------------------------------------
 
-const port: number = 3000;
+const port: number = Number(process.env.PORT) || 3000;
 
 (async () => {
    try {
