@@ -5,7 +5,7 @@
   "main": "dist/server.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "npm run build && node dist/server.js",
+    "start": "node dist/server.js",
     "dev": "nodemon --files src/server.ts",
     "db:seed": "ts-node src/database/seeders/DatabaseSeeder.ts",
     "db:migrate": "npx typeorm-ts-node-commonjs migration:run -d ./src/database/data-source.ts",
